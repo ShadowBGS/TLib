@@ -1,0 +1,89 @@
+@import url("https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
+:root {
+  --inria: "Inria Sans", sans-serif;
+}
+
+body {
+  font-family: var(--inria);
+  margin: 0px;
+}
+button:hover {
+  cursor: pointer;
+}
+
+main {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+article {
+  width: 80%;
+}
+.BookDesc {
+  line-height: 50px;
+  h1 {
+    font-size: 40px;
+  }
+  p {
+    font-size: large;
+  }
+}
+.BookMain {
+  width: 80%;
+
+  display: flex;
+  gap: 20px;
+  h1 {
+    margin-top: 10px;
+    font-size: 45px;
+    margin-bottom: 0px;
+  }
+  button {
+    margin: 10px 0px;
+    font-size: medium;
+    padding: 12px;
+    width: 110px;
+
+    border: 0px;
+    color: white;
+    border-radius: 7px;
+  }
+  img {
+    width: 100%;
+    height: 320px;
+  }
+  div {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+  }
+  p {
+    font-size: 20px;
+    margin-bottom: 0px;
+  }
+}
+@media (max-width: 700px) {
+  nav {
+    display: none;
+  }
+  .Nav2 {
+    display: flex;
+  }
+  .BookMain h1 {
+    font-size: xx-large;
+  }
+}
+img:hover {
+  cursor: pointer;
+}
+.borrow {
+  background-color: #611991;
+}
+.borrowed,
+.read {
+  background-color: #611991b2;
+}
+.unavailable {
+  background-color: #611991b2;
+}

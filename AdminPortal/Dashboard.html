@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="/Navigation.css" /> -->
+    <link rel="stylesheet" href="Dashboard.css" />
+  </head>
+  <body>
+    <nav>
+      <div>
+        <img
+          src="/Logo/Frame (1).svg"
+          alt=""
+          onclick="window.location.href='/Home.html'"
+        />
+      </div>
+
+      <div class="profile-container" onclick="getdetails()">
+        <img
+          src="/MainImages/Profile.svg"
+          alt="Profile Picture"
+          class="profile-pic"
+          onclick="togglePopup(event)"
+        />
+        <div id="popup" class="popup" onclick="event.stopPropagation()">
+          <p style="color: #b695cc; width: 100%" id="Email">
+            fajolou8555@student.babcock.edu.ng
+          </p>
+          <img src="/MainImages/Profile.svg" alt="Profile Picture" />
+          <p style="color: #611991cc" id="Name">Hi, Oluwadaramisi</p>
+          <button onclick="logout()" class="logout-btn">Log Out</button>
+        </div>
+      </div>
+    </nav>
+    <main>
+      <article class="SideBar">
+        <div class="sidebar">
+          <div class="div" id="sidebar" onclick="toggleSidebar()">
+            <img class="img" src="Images/menu.svg" />
+          </div>
+          <div class="side-panel-menu" id="side-panel-menu">
+            <div class="menu-item">
+              <img class="img" src="Images/home.svg" />
+              <div class="books" id="q1">Dashboard</div>
+            </div>
+            <div class="div" onclick="window.location.href='Books/Books.html'">
+              <img class="img" src="Images/library.svg" />
+              <div class="text-wrapper" id="q2">Books</div>
+            </div>
+            <div
+              class="menu-item-2"
+              onclick="window.location.href='User/User.html'"
+            >
+              <img class="img" src="Images/user.svg" />
+              <div class="text-wrapper-2" id="q3">Users</div>
+            </div>
+            <div
+              class="menu-item-2"
+              onclick="window.location.href='Records/Records.html'"
+            >
+              <img class="img" src="Images/audio.svg" />
+              <div class="text-wrapper-2" id="q4">Borrowing Records</div>
+            </div>
+            <div
+              class="menu-item-2"
+              onclick="window.location.href='Pending/Pending.html'"
+            >
+              <img class="img" src="Images/notifications.svg" />
+              <div class="text-wrapper-2" id="q5">
+                Pending&nbsp;&nbsp;Borrows/ Returns
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+      <article class="MainBar">
+        <article>
+          <header>
+            <h1>Admin Dashboard</h1>
+            <h5>Welcome, Admin Oluwademilade</h5>
+          </header>
+          <section class="stats">
+            <div class="dashboard-number">
+              <div class="container">
+                <div class="card-container">
+                  <div class="number-card">
+                    <div class="frame">
+                      <div class="text-wrapper">Total Books</div>
+                    </div>
+                    <div class="number-detail">
+                      <div class="div" id="TB"></div>
+                    </div>
+                  </div>
+                  <div class="number-card">
+                    <div class="frame">
+                      <div class="text-wrapper">Active Users</div>
+                    </div>
+                    <div class="number-detail">
+                      <div class="div" id="AU"></div>
+                    </div>
+                  </div>
+                  <div class="number-card">
+                    <div class="frame">
+                      <div class="text-wrapper">Borrowed Books</div>
+                    </div>
+                    <div class="number-detail">
+                      <div class="div" id="BB"></div>
+                    </div>
+                  </div>
+                  <div class="number-card">
+                    <div class="frame">
+                      <div class="text-wrapper">Overdue Books</div>
+                    </div>
+                    <div class="number-detail">
+                      <div class="div" id="OB"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <details id="Recents" open>
+            <summary>
+              Recent Activity
+              <img src="Images/arrow_drop_down.svg" alt="" />
+            </summary>
+          </details>
+        </article>
+      </article>
+    </main>
+
+    <script src="Dashboard.js"></script>
+  </body>
+</html>
