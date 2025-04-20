@@ -189,16 +189,17 @@ async function checkType() {
 
   try {
     const response = await authorizedFetch(
-      `${API_BASE_URL}/checkType?userId=${userId}&usertype=${userType}&isAdmin=true`
+      `${API_BASE_URL}/checkType?userId=${userId}&usertype=${userType}`
     );
     const data = await response.json();
 
     if (!response.ok) {
       logoutAPIs();
-      alert("Not Admin.");
+      alert(`Not ${userType}.`);
       throw new Error(data.message);
     }
   } catch (error) {
+    logoutAPIs();
     console.error("Check-Type error:", error.message);
     alert(error.message);
   }

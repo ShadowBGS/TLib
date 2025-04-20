@@ -64,7 +64,10 @@ document.addEventListener("DOMContentLoaded", async function () {
 
         const imgresponse = await authorizedFetch(imageUrl);
         const blob = await imgresponse.blob();
-        const objectURL = URL.createObjectURL(blob);
+        let objectURL = null;
+        if (blob.type.startsWith("image/")) {
+          objectURL = URL.createObjectURL(blob);
+        }
         const bookElement = document.createElement("div");
         bookElement.classList.add("book");
         bookElement.setAttribute("data-serial", book.serialNumber);

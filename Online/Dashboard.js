@@ -2,14 +2,16 @@ if (localStorage.getItem("darkMode") === "enabled") {
   document.body.classList.add("dark-mode");
 }
 
-document.getElementById('bi-circle-half').addEventListener('click', function () {
-  const drop = document.querySelector('.drop');
-  if (drop.style.display === 'block') {
-    drop.style.display = 'none';
-  } else {
-    drop.style.display = 'block';
-  }
-});
+document
+  .getElementById("bi-circle-half")
+  .addEventListener("click", function () {
+    const drop = document.querySelector(".drop");
+    if (drop.style.display === "block") {
+      drop.style.display = "none";
+    } else {
+      drop.style.display = "block";
+    }
+  });
 
 function authorizedFetch(url, options = {}) {
   const token = sessionStorage.getItem("token"); // Your JWT token
@@ -55,14 +57,13 @@ if (sunBtn) {
     document.body.classList.remove("dark-mode");
     localStorage.setItem("darkMode", "disabled");
     if (localStorage.getItem("darkMode") == "enabled") {
-    moonBtn.style.backgroundColor = "#61199133";
-    sunBtn.style.backgroundColor = "transparent";
-  } else if (localStorage.getItem("darkMode") == "disabled") {
-    moonBtn.style.backgroundColor = "transparent";
-    sunBtn.style.backgroundColor = "#61199133";
-  }
+      moonBtn.style.backgroundColor = "#61199133";
+      sunBtn.style.backgroundColor = "transparent";
+    } else if (localStorage.getItem("darkMode") == "disabled") {
+      moonBtn.style.backgroundColor = "transparent";
+      sunBtn.style.backgroundColor = "#61199133";
+    }
   };
-  
 }
 // If not logged in, redirect to login page
 const API_BASE_URL = "https://localhost:44354/api/userlogin";
@@ -238,16 +239,17 @@ async function checkType() {
 
   try {
     const response = await authorizedFetch(
-      `${API_BASE_URL}/checkType?userId=${userId}&usertype=${userType}&isAdmin=true`
+      `${API_BASE_URL}/checkType?userId=${userId}&usertype=${userType}`
     );
     const data = await response.json();
 
     if (!response.ok) {
       logoutAPIs();
-      alert("Not Admin.");
+      alert(`Not ${userType}.`);
       throw new Error(data.message);
     }
   } catch (error) {
+    logoutAPIs();
     console.error("Check-Type error:", error.message);
     alert(error.message);
   }

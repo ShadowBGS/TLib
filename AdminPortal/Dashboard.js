@@ -170,6 +170,7 @@ async function checkType() {
       throw new Error(data.message);
     }
   } catch (error) {
+    logoutAPIs();
     console.error("Check-Type error:", error.message);
     alert(error.message);
   }

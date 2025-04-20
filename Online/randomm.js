@@ -64,7 +64,10 @@ document.addEventListener("DOMContentLoaded", function () {
         const imageUrl = `https://localhost:44354/api/books/image/${book.serialNumber}`;
         const imgresponse = await authorizedFetch(imageUrl);
         const blob = await imgresponse.blob();
-        const objectURL = URL.createObjectURL(blob);
+        let objectURL = null;
+        if (blob.type.startsWith("image/")) {
+          objectURL = URL.createObjectURL(blob);
+        }
 
         const borrowResponse = await authorizedFetch(borrowHistoryUrl);
         const borrowData = await borrowResponse.json();

@@ -87,8 +87,11 @@ document.addEventListener("DOMContentLoaded", async function () {
     const book = await response.json();
     const imageUrl = `https://localhost:44354/api/Books/image/${serialNumber}`;
     const imgresponse = await authorizedFetch(imageUrl);
-    const blob = await imgresponse.blob();
-    const objectURL = URL.createObjectURL(blob);
+        const blob = await imgresponse.blob();
+        let objectURL = null;
+        if (blob.type.startsWith("image/")) {
+          objectURL = URL.createObjectURL(blob);
+        }
     console.log(book);
     document.getElementById("BName").innerText = truncateText(book.name, 7);
     document.getElementById("Image").src = objectURL|| "/BookImages/default.png";
