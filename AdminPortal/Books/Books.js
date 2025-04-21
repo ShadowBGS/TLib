@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         bookElement.classList.add("book");
         bookElement.setAttribute("data-serial", book.serialNumber);
         bookElement.innerHTML = `
-          <img src="${objectURL}" alt="${book.name}" />
+          <img src="${objectURL|| "/BookImages/default.png"}" alt="${book.name}" />
           <h3>${truncateText(book.name, 4)}</h3>
           <p>${truncateText(book.author, 4)}</p>
           <div class="book_details">
