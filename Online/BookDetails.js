@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     const bookName = truncateText(book.name, 7);
     document.getElementById("BName").innerText = truncateText(book.name, 7);
     document.getElementById("SerialNumber").innerText = book.serialNumber;
-    document.getElementById("Image").src = objectURL;
+    document.getElementById("Image").src = objectURL || "BookImages/default.png";
     document.getElementById("Author").innerText = truncateText(book.name, 7);
     document.getElementById("Description").innerHTML = book.description;
     document.getElementById("Year").innerHTML = "Published: " + book.year;
