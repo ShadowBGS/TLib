@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     const objectURL = URL.createObjectURL(blob);
     console.log(book);
     document.getElementById("BName").innerText = truncateText(book.name, 7);
-    document.getElementById("Image").src = objectURL;
+    document.getElementById("Image").src = objectURL|| "/BookImages/default.png";
     document.getElementById("SerialNumber").innerText = book.serialNumber;
     document.getElementById("Author").innerText = truncateText(book.name, 7);
     document.getElementById("Description").innerHTML = book.description;
