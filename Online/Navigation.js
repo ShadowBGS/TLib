@@ -3,14 +3,14 @@ if (localStorage.getItem("darkMode") === "enabled") {
   document.body.classList.add("dark-mode");
 }
 
-document.getElementById('bi-circle-half').addEventListener('click', function () {
-  const drop = document.querySelector('.drop');
-  if (drop.style.display === 'block') {
-    drop.style.display = 'none';
-  } else {
-    drop.style.display = 'block';
-  }
-});
+// document.getElementById('bi-circle-half').addEventListener('click', function () {
+//   const drop = document.querySelector('.drop');
+//   if (drop.style.display === 'block') {
+//     drop.style.display = 'none';
+//   } else {
+//     drop.style.display = 'block';
+//   }
+// });
 
 // ✅ Load Navigation.html and attach event listeners afterward
 fetch("Navigation.html")
