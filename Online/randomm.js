@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
         bookElement.setAttribute("data-serials", book.name);
 
         bookElement.innerHTML = `
-          <img src="${objectURL}" alt="${
+          <img src="${objectURL|| "/BookImages/default.png"}" alt="${
           book.name
         }" onerror="this.src='default.jpg'" />
           <h3>${truncateText(book.name, 4)}</h3>
