@@ -35,7 +35,10 @@ document.addEventListener("DOMContentLoaded", async function () {
     const imageUrl = `https://localhost:44354/api/Books/image/${serialNumber}`;
     const imgresponse = await authorizedFetch(imageUrl);
     const blob = await imgresponse.blob();
-    const objectURL = URL.createObjectURL(blob);
+    let objectURL = null;
+    if (blob.type.startsWith("image/")) {
+      objectURL = URL.createObjectURL(blob);
+    }
     document.getElementById("BName").innerText = truncateText(book.name, 4);
     document.getElementById("Image").src = objectURL;
     document.getElementById("Author").innerText = truncateText(book.author, 4);
