@@ -16,7 +16,7 @@ function authorizedFetch(url, options = {}) {
 }
 
 if (sessionStorage.getItem("isLoggedIn")) {
-  window.location.href = "Dashboard.html";
+  window.location.href = "AdminPortal/Dashboard.html";
 }
 function togglePassword() {
   var passwordField = document.getElementById("password");
