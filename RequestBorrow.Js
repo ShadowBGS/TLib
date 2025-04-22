@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
     console.log(book.name);
     document.getElementById("BName").innerText = truncateText(book.name, 4);
-    document.getElementById("Image").src = objectURL;
+    document.getElementById("Image").src = objectURL|| "/BookImages/default.png";
     document.getElementById("Author").innerText = truncateText(book.author, 4);
   } catch (error) {
     console.error("Error fetching Book");
