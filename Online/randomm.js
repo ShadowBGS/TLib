@@ -104,6 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
       console.log(book_serialNumber);
       if (!booksContainer.innerHTML) {
+        document.getElementById("loader").style.display = "none";
         document.getElementById("pagination").style.display = "none";
         document.getElementById("errormsg").style.display = "block";
       }
@@ -111,6 +112,8 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById("loader").style.display = "none";
       updatePagination(totalPages);
     } catch (error) {
+      document.getElementById("pagination").style.display = "none";
+        document.getElementById("errormsg").style.display = "block";
       console.error("Error fetching books:", error);
       document.getElementById("loader").style.display = "none";
     }

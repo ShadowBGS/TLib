@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const searchInput = document.getElementById("search");
   const searchBtn = document.getElementById("search_btn");
   const historyContainer = document.querySelector(".book_list");
+  
 
   (async function init() {
     await fetchAndDisplayBorrowedBooks();
@@ -53,11 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <h3>${truncateText(book.name, 4)}</h3>
           <p>${truncateText(book.author, 4)}</p>
           <div class="book_details">
-            <button class="${
-              book.pdfPath == null ? "unavailable" : "borrowed"
-            }">
-              ${book.pdfPath == null ? "Unavailable" : "Read"}
-            </button>
+            
             <a href="BookDetails.html?serialNumber=${
               book.serialNumber
             }" class="details">
