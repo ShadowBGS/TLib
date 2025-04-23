@@ -17,7 +17,7 @@ function authorizedFetch(url, options = {}) {
 document.addEventListener("DOMContentLoaded", () => {
   const userId = sessionStorage.getItem("userId");
   authorizedFetch(
-    `https://localhost:44354/api/user/${encodeURIComponent(userId)}`
+    `https://a-z3tq.onrender.com/api/user/${encodeURIComponent(userId)}`
   )
     .then((response1) => response1.json())
     .then((User) => {
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
         parseInt(User.borrowlimit) + "/10";
     });
   authorizedFetch(
-    `https://localhost:44354/api/Books/borrow-history?UserId=${encodeURIComponent(
+    `https://a-z3tq.onrender.com/api/Books/borrow-history?UserId=${encodeURIComponent(
       userId
     )}`
   )

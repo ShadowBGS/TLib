@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 async function Verifyemail() {
   document.getElementById("otp-message").innerText = "Sending OTP...";
-  const url = `https://localhost:44354/api/user/send-otp?email=${email.value}`;
+  const url = `https://a-z3tq.onrender.com/api/user/send-otp?email=${email.value}`;
   const response = await authorizedFetch(url, {
     method: "POST",
   });

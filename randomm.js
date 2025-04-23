@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     const order = document.getElementById("order").value || "asc";
     const filter = document.getElementById("filter").value;
 
-    const booksApiUrl = `https://localhost:44354/api/Books/books?search=${encodeURIComponent(
+    const booksApiUrl = `https://a-z3tq.onrender.com/api/Books/books?search=${encodeURIComponent(
       search
     )}&sort=${sort}&order=${order}&filter=${filter}&pageNumber=${currentPage}&pageSize=${pageSize}`;
 
@@ -58,10 +58,10 @@ document.addEventListener("DOMContentLoaded", async function () {
 
       // Display books
       for (const book of books) {
-        const borrowHistoryUrl = `https://localhost:44354/api/Books/borrow-history?UserId=${encodeURIComponent(
+        const borrowHistoryUrl = `https://a-z3tq.onrender.com/api/Books/borrow-history?UserId=${encodeURIComponent(
           userId
         )}&serialnumber=${book.serialNumber}&IsReturned=false&IsOnline=false`;
-        const imageUrl = `https://localhost:44354/api/books/image/${book.serialNumber}`;
+        const imageUrl = `https://a-z3tq.onrender.com/api/books/image/${book.serialNumber}`;
         const borrowResponse = await authorizedFetch(borrowHistoryUrl);
         const borrowData = await borrowResponse.json();
 

@@ -16,7 +16,7 @@ fetch("Navigation.html")
   .catch((error) => console.error("Error loading navigation:", error));
 
 // ✅ Constants and Utility
-const API_BASE_URL = "https://localhost:44354/api/userlogin";
+const API_BASE_URL = "https://a-z3tq.onrender.com/api/userlogin";
 
 function authorizedFetch(url, options = {}) {
   const token = sessionStorage.getItem("token");
@@ -251,8 +251,9 @@ async function loadUserDetails() {
   }
   console.log(nameElement);
   try {
+    
     const studentResponse = await authorizedFetch(
-      `https://localhost:44354/api/user/${encodeURIComponent(userId)}`
+      `https://a-z3tq.onrender.com/api/user/${encodeURIComponent(userId)}`
     );
     if (!studentResponse.ok) throw new Error("Student not found");
 
@@ -289,7 +290,7 @@ async function checkType() {
 document.addEventListener("DOMContentLoaded", async function () {
   checkType();
   const userId = sessionStorage.getItem("userId");
-  const url = `https://localhost:44354/api/userlogin/Isverified?userId=${userId}`;
+  const url = `https://a-z3tq.onrender.com/api/userlogin/Isverified?userId=${userId}`;
   const response= await authorizedFetch(url)
   const data =response.json();
   console.log(data)

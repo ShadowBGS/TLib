@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const userType = document.getElementById("userType").value;
     const isOnline = document.getElementById("isOnline").value;
 
-    const borrowUrl = `https://localhost:44354/api/Books/borrow-history?UserId=${encodeURIComponent(
+    const borrowUrl = `https://a-z3tq.onrender.com/api/Books/borrow-history?UserId=${encodeURIComponent(
       userId
     )}&UserType=${userType}&serialnumber=${serialNumber}&overdue=${overdue}&IsReturned=${isReturned}&startDate=${startDate}&endDate=${endDate}&Department=${department}&School=${school}&pageNumber=${page}&pageSize=${pageSize}&IsOnline=${isOnline}`;
 
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const history = data.borrowHistory;
     try {
       // const userResponse = await authorizedFetch(
-      //   `https://localhost:44354/api/user/${encodeURIComponent(userId)}`
+      //   `https://a-z3tq.onrender.com/api/user/${encodeURIComponent(userId)}`
       // );
       // const User = await userResponse.json();
       // document.querySelector(".rCategory").innerHTML = User.rCategory;

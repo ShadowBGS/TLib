@@ -76,7 +76,7 @@ function toggleSidebar() {
 }
 sidebar.addEventListener("click", toggleSidebar);
 
-const API_BASE_URL = "https://localhost:44354/api/userlogin";
+const API_BASE_URL = "https://a-z3tq.onrender.com/api/userlogin";
 
 // Redirect to login if not logged in
 // if (!sessionStorage.getItem("isLoggedIn")||!userId) {
@@ -271,7 +271,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   try {
     // Fetch student details
     const studentResponse = await authorizedFetch(
-      `https://localhost:44354/api/user/${encodeURIComponent(userId)}`
+      `https://a-z3tq.onrender.com/api/user/${encodeURIComponent(userId)}`
     );
     if (!studentResponse.ok) throw new Error("Student not found");
 
@@ -290,7 +290,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   }
 });
 document.addEventListener("DOMContentLoaded", async function GetRecents() {
-  const url = `https://localhost:44354/api/Books/borrow-history?pageNumber=1&pageSize=5`;
+  const url = `https://a-z3tq.onrender.com/api/Books/borrow-history?pageNumber=1&pageSize=5`;
 
   try {
     const response = await fetch(url);
@@ -322,7 +322,7 @@ document.addEventListener("DOMContentLoaded", async function GetRecents() {
 
 document.addEventListener("DOMContentLoaded", async function () {
   const userId = sessionStorage.getItem("userId");
-  const url = `https://localhost:44354/api/userlogin/Isverified?userId=${userId}`;
+  const url = `https://a-z3tq.onrender.com/api/userlogin/Isverified?userId=${userId}`;
   const response = await authorizedFetch(url);
   const data = response.json();
   console.log(data);

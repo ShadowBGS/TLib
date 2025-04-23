@@ -256,7 +256,7 @@
       async function fetchPendingReturns() {
         try {
           const res = await fetch(
-            "https://localhost:44354/api/Books/pending-returns"
+            "https://a-z3tq.onrender.com/api/Books/pending-returns"
           );
           const returns = await res.json();
 
@@ -296,7 +296,7 @@
       async function approveReturn() {
         try {
           const res = await fetch(
-            `https://localhost:44354/api/Books/approve-return/${encodeURIComponent(
+            `https://a-z3tq.onrender.com/api/Books/approve-return/${encodeURIComponent(
               currentReturnCode
             )}`,
             {

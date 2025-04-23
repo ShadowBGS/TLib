@@ -6,7 +6,7 @@ const userId = document.getElementById("matric").value;
 const password = document.getElementById("password").value;
 const passwordinput = document.getElementById("password");
 const errorMessage = document.getElementById("error-message");
-const API_BASE_URL = "https://localhost:44354/api/userlogin";
+const API_BASE_URL = "https://a-z3tq.onrender.com/api/userlogin";
 
 // Redirect to login if not logged in
 
@@ -15,7 +15,7 @@ async function login() {
   const userId = document.getElementById("matric").value;
   const password = document.getElementById("password").value;
   const errorMessage = document.getElementById("error-message");
-  const API_BASE_URL = "https://localhost:44354/api/userlogin";
+  const API_BASE_URL = "https://a-z3tq.onrender.com/api/userlogin";
   try {
     const response = await fetch(
       `${API_BASE_URL}/student?UserId=${encodeURIComponent(

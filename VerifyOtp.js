@@ -29,7 +29,7 @@ async function ValidateOtp() {
   console.log(val);
   document.getElementById("otp-message").innerText = "Validating OTP...";
   const email = localStorage.getItem("email");
-  const url = `https://localhost:44354/api/user/verify-otp?Email=${email}&Otp=${val}`;
+  const url = `https://a-z3tq.onrender.com/api/user/verify-otp?Email=${email}&Otp=${val}`;
   const repsonse = await authorizedFetch(url, {
     method: "POST",
   });
@@ -62,7 +62,7 @@ async function sendOtp() {
 
   message.innerText = "Sending OTP...";
 
-  const url = `https://localhost:44354/api/user/send-otp?email=${email.innerHTML}`;
+  const url = `https://a-z3tq.onrender.com/api/user/send-otp?email=${email.innerHTML}`;
   const response = await authorizedFetch(url, {
     method: "POST",
   });

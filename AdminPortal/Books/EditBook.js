@@ -20,7 +20,7 @@ async function updateBook() {
 
   try {
     const response = await fetch(
-      `https://localhost:44354/api/books/${serialNumber}`,
+      `https://a-z3tq.onrender.com/api/books/${serialNumber}`,
       {
         method: "PATCH",
         headers: {

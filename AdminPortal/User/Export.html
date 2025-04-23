@@ -138,7 +138,7 @@
         try {
           responseDiv.textContent = "Preparing file...";
 
-          const res = await fetch("https://localhost:44354/api/user/export-users");
+          const res = await fetch("https://a-z3tq.onrender.com/api/user/export-users");
           if (!res.ok) throw new Error("Failed to export");
 
           const blob = await res.blob();

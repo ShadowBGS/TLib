@@ -3,7 +3,7 @@ const userId = sessionStorage.getItem("userId");
 const goback = localStorage.getItem("savedLocation");
 const borrowcode = localStorage.getItem("borrowcode");
 console.log(userId);
-const borrowUrl = `https://localhost:44354/api/Books/borrow/${serialNumber}/${encodeURIComponent(
+const borrowUrl = `https://a-z3tq.onrender.com/api/Books/borrow/${serialNumber}/${encodeURIComponent(
   userId
 )}/${borrowcode}`;
 document.getElementById("borrowcode").innerHTML = borrowcode;

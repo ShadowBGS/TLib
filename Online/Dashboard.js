@@ -66,7 +66,7 @@ if (sunBtn) {
   };
 }
 // If not logged in, redirect to login page
-const API_BASE_URL = "https://localhost:44354/api/userlogin";
+const API_BASE_URL = "https://a-z3tq.onrender.com/api/userlogin";
 if (!sessionStorage.getItem("isLoggedIn")) {
   window.location.href = "/StudentLogin.html";
 }
@@ -188,7 +188,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   try {
     // Fetch User details
     const UserResponse = await authorizedFetch(
-      `https://localhost:44354/api/user/${encodeURIComponent(userId)}`
+      `https://a-z3tq.onrender.com/api/user/${encodeURIComponent(userId)}`
     );
     if (!UserResponse.ok) throw new Error("User not found");
 
@@ -257,7 +257,7 @@ async function checkType() {
 document.addEventListener("DOMContentLoaded", async function () {
   checkType();
   const userId = sessionStorage.getItem("userId");
-  const url = `https://localhost:44354/api/userlogin/Isverified?userId=${userId}`;
+  const url = `https://a-z3tq.onrender.com/api/userlogin/Isverified?userId=${userId}`;
   const response = await authorizedFetch(url);
   const data = response.json();
   console.log(data);

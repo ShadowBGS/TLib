@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const OU = document.getElementById("OU");
     const TU = document.getElementById("TU");
 
-    const userUrl = `https://localhost:44354/api/user/Users?UserId=${encodeURIComponent(
+    const userUrl = `https://a-z3tq.onrender.com/api/user/Users?UserId=${encodeURIComponent(
       userId
     )}&UserType=${userType}&FirstName=${firstName}&LastName=${lastName}&IsAdmin=${isAdmin}&IsActive=${isActive}&IsLogged=${isLoggedIn}&Department=${department}&School=${school}&Rating=${rating}&email=${email}&pageNumber=${currentPage}&pageSize=10`;
 

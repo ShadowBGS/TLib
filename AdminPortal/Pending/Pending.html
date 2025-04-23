@@ -254,7 +254,7 @@
       async function fetchPendingBorrows() {
         try {
           const res = await fetch(
-            "https://localhost:44354/api/Books/pending-borrows"
+            "https://a-z3tq.onrender.com/api/Books/pending-borrows"
           );
           const borrows = await res.json();
 
@@ -294,7 +294,7 @@
       async function approveBorrow() {
         try {
           const res = await fetch(
-            `https://localhost:44354/api/Books/approve-borrow/${encodeURIComponent(
+            `https://a-z3tq.onrender.com/api/Books/approve-borrow/${encodeURIComponent(
               currentBorrowCode
             )}`,
             {

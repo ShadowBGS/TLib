@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const order = document.getElementById("order")?.value || "asc";
     const filter = document.getElementById("filter")?.value || "";
 
-    const url = `https://localhost:44354/api/Books/books-by-borrow-history?UserId=${encodeURIComponent(
+    const url = `https://a-z3tq.onrender.com/api/Books/books-by-borrow-history?UserId=${encodeURIComponent(
       userId
     )}&search=${encodeURIComponent(
       search
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("pagination").style.display = "flex";
 
       for (const book of borrowedBooks) {
-        const imageUrl = `https://localhost:44354/api/books/image/${book.serialNumber}`;
+        const imageUrl = `https://a-z3tq.onrender.com/api/books/image/${book.serialNumber}`;
         const imgRes = await authorizedFetch(imageUrl);
         const blob = await imgRes.blob();
         const objectURL = URL.createObjectURL(blob);

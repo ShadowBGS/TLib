@@ -36,13 +36,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const school = document.getElementById("school").value;
     const userId = sessionStorage.getItem("userId");
 
-    const borrowUrl = `https://localhost:44354/api/Books/borrow-history?UserId=${encodeURI(
+    const borrowUrl = `https://a-z3tq.onrender.com/api/Books/borrow-history?UserId=${encodeURI(
       userId
     )}&serialnumber=${serialNumber}&overdue=${overdue}&IsReturned=${isReturned}&startDate=${startDate}&endDate=${endDate}&Department=${department}&School=${school}&pageNumber=${page}&pageSize=${pageSize}&IsOnline=false`;
 
     try {
       const userResponse = await authorizedFetch(
-        `https://localhost:44354/api/user/${encodeURIComponent(userId)}`
+        `https://a-z3tq.onrender.com/api/user/${encodeURIComponent(userId)}`
       );
       const User = await userResponse.json();
       document.querySelector(".rCategory").innerHTML = User.rCategory;

@@ -48,7 +48,7 @@
       async function fetchBooks() {
         try {
           const response = await authorizedFetch(
-            "https://localhost:44354/api/Books"
+            "https://a-z3tq.onrender.com/api/Books"
           );
           if (!response.ok) {
             throw new Error("Failed to fetch books data");

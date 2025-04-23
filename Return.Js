@@ -39,7 +39,7 @@ Enter.addEventListener("click", async () => {
   try {
     const matricNo = sessionStorage.getItem("matricNo");
     const serialNumber = document.getElementById("serialnumber").value.trim();
-    const borrowHistoryUrl = `https://localhost:44354/api/Books/borrow-history?matricNumber=${encodeURIComponent(
+    const borrowHistoryUrl = `https://a-z3tq.onrender.com/api/Books/borrow-history?matricNumber=${encodeURIComponent(
       matricNo
     )}&serialnumber=${serialNumber}&IsReturned=false`;
 
@@ -48,7 +48,7 @@ Enter.addEventListener("click", async () => {
     const borrowData = await borrowResponse.json();
     const isBorrowed = borrowData.totalNotReturned > 0;
     console.log(isBorrowed);
-    const bookurl = `https://localhost:44354/api/Books/${serialNumber}`;
+    const bookurl = `https://a-z3tq.onrender.com/api/Books/${serialNumber}`;
     const response = await authorizedFetch(bookurl);
     const bookresponse = await response.json();
 

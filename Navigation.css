@@ -3,11 +3,13 @@
 :root {
   --inria: "Inria Sans", sans-serif;
   --inter: "Inter", sans-serif;
+  --black:"#000000;"
 }
 
 body {
   font-family: var(--inter);
   margin: 0px;
+  color: var(--black);
   transition: ease-out 0.6s;
 }
 nav {

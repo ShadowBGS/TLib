@@ -30,7 +30,7 @@ const School = document.getElementById("School").value.trim();
 const matric = document.getElementById("matric").value.trim();
 // const password = document.getElementById("password").value.trim();
 const Department = document.getElementById("Department").value.trim();
-const url = `https://localhost:44354/api/user/register?UserId=${matric}&FirstName=${first}&LastName=${last}&Email=${encodeURIComponent(
+const url = `https://a-z3tq.onrender.com/api/user/register?UserId=${matric}&FirstName=${first}&LastName=${last}&Email=${encodeURIComponent(
   email
 )}&UserType=Student&IsAdmin=false&Department=${Department}&School=${School}&Password=${password}`;
 const errorMessage = document.getElementById("error-message");
@@ -46,7 +46,7 @@ async function register() {
     const password = document.getElementById("password").value.trim();
     const Department = document.getElementById("Department").value.trim();
     const errorMessage = document.getElementById("error-message");
-    const url = `https://localhost:44354/api/user/register?UserId=${encodeURIComponent(matric)}&FirstName=${first}&LastName=${last}&Email=${encodeURIComponent(
+    const url = `https://a-z3tq.onrender.com/api/user/register?UserId=${encodeURIComponent(matric)}&FirstName=${first}&LastName=${last}&Email=${encodeURIComponent(
       email
     )}&UserType=Lecturer&IsAdmin=false&Department=${Department}&School=${School}&Password=${password}`;
 

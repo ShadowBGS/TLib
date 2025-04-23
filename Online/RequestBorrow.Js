@@ -19,12 +19,12 @@ function authorizedFetch(url, options = {}) {
 const duration = document.querySelector(".Duration");
 
 const serialNumber = localStorage.getItem("selectedSerial");
-const bookurl = `https://localhost:44354/api/Books/${serialNumber}`;
+const bookurl = `https://a-z3tq.onrender.com/api/Books/${serialNumber}`;
 const userId = sessionStorage.getItem("userId");
-const requestborrowurl = `https://localhost:44354/api/Books/borrowOnline/${serialNumber}/${encodeURIComponent(
+const requestborrowurl = `https://a-z3tq.onrender.com/api/Books/borrowOnline/${serialNumber}/${encodeURIComponent(
   userId
 )}`;
-const borrowedbooksUrl = `https://localhost:44354/api/user/Users?UserId=${encodeURIComponent(
+const borrowedbooksUrl = `https://a-z3tq.onrender.com/api/user/Users?UserId=${encodeURIComponent(
   userId
 )}`;
 document.addEventListener("DOMContentLoaded", async function () {
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   try {
     const response = await authorizedFetch(bookurl);
     const book = await response.json();
-    const imageUrl = `https://localhost:44354/api/Books/image/${serialNumber}`;
+    const imageUrl = `https://a-z3tq.onrender.com/api/Books/image/${serialNumber}`;
     const imgresponse = await authorizedFetch(imageUrl);
     const blob = await imgresponse.blob();
     let objectURL = null;

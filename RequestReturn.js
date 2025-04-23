@@ -17,9 +17,9 @@ function authorizedFetch(url, options = {}) {
 }
 
 const serialNumber = localStorage.getItem("selectedSerial");
-const bookurl = `https://localhost:44354/api/Books/${serialNumber}`;
+const bookurl = `https://a-z3tq.onrender.com/api/Books/${serialNumber}`;
 const userId = sessionStorage.getItem("userId");
-const requestreturnurl = `https://localhost:44354/api/Books/request-return/${serialNumber}/${encodeURIComponent(
+const requestreturnurl = `https://a-z3tq.onrender.com/api/Books/request-return/${serialNumber}/${encodeURIComponent(
   userId
 )}`;
 document.addEventListener("DOMContentLoaded", async function () {
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   try {
     const response = await authorizedFetch(bookurl);
     const book = await response.json();
-    const imageUrl = `https://localhost:44354/api/Books/image/${serialNumber}`;
+    const imageUrl = `https://a-z3tq.onrender.com/api/Books/image/${serialNumber}`;
     const imgresponse = await authorizedFetch(imageUrl);
     const blob = await imgresponse.blob();
     let objectURL = null;
@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 const continuebutton = document.getElementById("Continue");
 continuebutton.addEventListener("click", async () => {
   try {
-    const borrowHistoryUrl = `https://localhost:44354/api/Books/borrow-history?UserId=${encodeURIComponent(
+    const borrowHistoryUrl = `https://a-z3tq.onrender.com/api/Books/borrow-history?UserId=${encodeURIComponent(
       userId
     )}&serialnumber=${serialNumber}&IsReturned=false`;
 
