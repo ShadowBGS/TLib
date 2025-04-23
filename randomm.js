@@ -107,6 +107,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         `;
         document.getElementById("loader").style.display = "none";
         if (booksContainer.innerHTML == null) {
+          document.getElementById("loader").style.display = "none";
           document.getElementById("pagination").style.display = "none";
           document.getElementById("errormsg").style.display = "block";
         }

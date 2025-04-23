@@ -105,6 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
         document.getElementById("loader").style.display = "none";
         if (!row.innerHTML) {
+          document.getElementById("loader").style.display = "none";
           document.getElementById("pagination").style.display = "none";
           document.getElementById("errormsg").style.display = "block";
         }
