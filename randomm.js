@@ -137,6 +137,9 @@ document.addEventListener("DOMContentLoaded", async function () {
     } catch (error) {
       console.error("Error fetching books:", error);
     }
+    finally{
+      document.getElementById("loader").style.display = "none";
+    }
   }
 
   function updatePagination(totalPages) {
