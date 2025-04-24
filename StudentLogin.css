@@ -135,6 +135,7 @@ main {
     border: 1px solid #dadcdd;
     border-radius: 5px;
   }
+  select{margin-top: 10px;}
   input:focus,select:focus {
     outline: none;
 

@@ -109,6 +109,9 @@ document.addEventListener("DOMContentLoaded", () => {
     } catch (error) {
       console.error("Error fetching data:", error);
     }
+    finally{
+      document.getElementById("loader").style.display = "none";
+    }
   }
 
   function formatDate(dateString) {

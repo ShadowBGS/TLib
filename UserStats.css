@@ -303,6 +303,7 @@ body {
 section {
   margin-bottom: 50px;
 }
+select{margin-top: 10px;}
 input,
 select {
   overflow: hidden;

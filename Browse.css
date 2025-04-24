@@ -167,7 +167,7 @@ select {
   border: none;
   color: #611991;
   border-radius: 10px;
-  margin: 0 20px;
+  margin: 10px 20px;
   text-align: center;
 }
 
@@ -178,8 +178,8 @@ select:focus-within {
   margin: 20px 0;
 }
 .pagination {
-  padding: 0 50px;
-  gap: 20px;
+  padding: 0 5%;
+  /* gap: 20px; */
   display: flex;
   justify-content: space-between;
   align-items: center;
