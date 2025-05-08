@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const pageSize = 10; // Set number of records per page
 
   fetchBorrowHistory();
-
+  document.getElementById("loader").style.display = "flex";
   async function fetchBorrowHistory(page = 1) {
     const serialNumber = document.getElementById("serialNumber").value.trim();
     const isReturned = document.getElementById("isReturned").value;
@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
               : "Pending"
           }</button></td>
         `;
-        document.getElementById("loader").style.display = "none";
+        
         if (!row.innerHTML) {
           document.getElementById("loader").style.display = "none";
           document.getElementById("pagination").style.display = "none";

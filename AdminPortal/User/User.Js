@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
   fetchuser();
 
   async function fetchuser(currentPage = 1) {
+    
     const userId = document.getElementById("userId").value.trim();
     const firstName = document.getElementById("firstName").value.trim();
     const lastName = document.getElementById("lastName").value.trim();

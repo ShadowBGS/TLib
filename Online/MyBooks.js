@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const searchInput = document.getElementById("search");
   const searchBtn = document.getElementById("search_btn");
   const historyContainer = document.querySelector(".book_list");
-  
 
   (async function init() {
     await fetchAndDisplayBorrowedBooks();
@@ -29,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const result = await response.json();
       const borrowedBooks = result.data;
       const totalPages = result.totalPages;
-
+      updatePagination(totalPages);
       historyContainer.innerHTML = "";
 
       if (!borrowedBooks.length) {
@@ -64,8 +63,6 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
         historyContainer.appendChild(bookElement);
       }
-
-      updatePagination(totalPages);
     } catch (err) {
       console.error("Failed to load borrowed books:", err);
     }

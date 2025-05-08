@@ -33,6 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
   fetchBooks();
 
   async function fetchBooks() {
+    document.getElementById("loader").style.display = "flex";
     const userId = sessionStorage.getItem("userId");
     const search = searchInput.value.trim();
     const sort = document.getElementById("sort").value || "Id";
@@ -53,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
       nextBtn.style.backgroundColor =
         currentPage < totalPages ? "#611991" : "#611991b2";
       booksContainer.innerHTML = "";
-
+      updatePagination(totalPages);
       for (const book of books) {
         book_serialNumber.push(book.serialNumber);
 
@@ -81,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
         bookElement.setAttribute("data-serials", book.name);
 
         bookElement.innerHTML = `
-          <img src="${objectURL|| "/BookImages/default.png"}" alt="${
+          <img src="${objectURL || "/BookImages/default.png"}" alt="${
           book.name
         }" onerror="this.src='default.jpg'" />
           <h3>${truncateText(book.name, 4)}</h3>
@@ -110,14 +111,12 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       document.getElementById("loader").style.display = "none";
-      updatePagination(totalPages);
     } catch (error) {
       document.getElementById("pagination").style.display = "none";
-        document.getElementById("errormsg").style.display = "block";
+      document.getElementById("errormsg").style.display = "block";
       console.error("Error fetching books:", error);
-      document.getElementById("loader").style.display = "none";
-    }
-    finally{
+      
+    } finally {
       document.getElementById("loader").style.display = "none";
     }
   }

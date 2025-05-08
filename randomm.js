@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   fetchBooks();
 
   async function fetchBooks() {
-    document.getElementById("loader").style.display = "block";
+    document.getElementById("loader").style.display = "flex";
 
     const userId = sessionStorage.getItem("userId");
     const search = searchInput.value.trim();

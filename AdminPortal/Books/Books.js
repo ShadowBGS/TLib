@@ -36,6 +36,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   fetchBooks();
 
   async function fetchBooks() {
+    document.getElementById("loader").style.display = "flex";
     const userId = sessionStorage.getItem("userId");
     const search = searchInput.value.trim();
     const sortSelect = document.getElementById("sort");
@@ -57,7 +58,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       console.log(totalPages);
       // Clear previous books
       booksContainer.innerHTML = "";
-
+      updatePagination(totalPages);
       // Display books
       for (const book of books) {
         const imageUrl = `https://a-z3tq.onrender.com/api/books/image/${book.serialNumber}`;
@@ -72,7 +73,9 @@ document.addEventListener("DOMContentLoaded", async function () {
         bookElement.classList.add("book");
         bookElement.setAttribute("data-serial", book.serialNumber);
         bookElement.innerHTML = `
-          <img src="${objectURL|| "/BookImages/default.png"}" alt="${book.name}" />
+          <img src="${objectURL || "/BookImages/default.png"}" alt="${
+          book.name
+        }" />
           <h3>${truncateText(book.name, 4)}</h3>
           <p>${truncateText(book.author, 4)}</p>
           <div class="book_details">
@@ -92,7 +95,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             window.location.href = "RequestBorrow.html";
           });
         });
-        document.getElementById("loader").style.display = "none";
+
         if (booksContainer.innerHTML == null) {
           document.getElementById("pagination").style.display = "none";
           document.getElementById("errormsg").style.display = "block";
@@ -108,12 +111,11 @@ document.addEventListener("DOMContentLoaded", async function () {
         });
       }
 
-      updatePagination(totalPages); // Update pagination controls
+      // Update pagination controls
     } catch (error) {
       console.error("Error fetching books:", error);
       document.getElementById("loader").style.display = "none";
-    }
-    finally{
+    } finally {
       document.getElementById("loader").style.display = "none";
     }
   }
