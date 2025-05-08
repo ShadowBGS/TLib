@@ -36,6 +36,8 @@ document.addEventListener("DOMContentLoaded", async function () {
   fetchBooks();
 
   async function fetchBooks() {
+    document.getElementById("loader").style.display = "block";
+    updatePagination(totalPages); // Update pagination controls
     const userId = sessionStorage.getItem("userId");
     const search = searchInput.value.trim();
     const sortSelect = document.getElementById("sort");
@@ -133,7 +135,8 @@ document.addEventListener("DOMContentLoaded", async function () {
         });
       }
 
-      updatePagination(totalPages); // Update pagination controls
+      
+      document.getElementById("pagination").style.display = "flex";
     } catch (error) {
       console.error("Error fetching books:", error);
     }
@@ -143,6 +146,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   }
 
   function updatePagination(totalPages) {
+    document.getElementById("pagination").style.display = "none";
     const prevBtn = document.getElementById("prevBtn");
     const nextBtn = document.getElementById("nextBtn");
     const pageNumber = document.getElementById("pageNumber");

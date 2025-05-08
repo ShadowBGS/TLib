@@ -247,8 +247,8 @@
       document.getElementById("Name").textContent = truncateText(Name, 7);
       document.getElementById("Name").title = Name;
       document.getElementById("Name").style.color = "#333333";
-
-      const url = `https://a-z3tq.onrender.com/api/Books/PDF/${serialNumber}`;
+      const userId = sessionStorage.getItem("userId");
+      const url = `https://a-z3tq.onrender.com/api/Books/PDFReader/${serialNumber}/${userId}`;
       let pdfDoc = null;
       let scale = 1.0;
       let currentPage = 1;
