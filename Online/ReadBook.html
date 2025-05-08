@@ -248,7 +248,9 @@
       document.getElementById("Name").title = Name;
       document.getElementById("Name").style.color = "#333333";
       const userId = sessionStorage.getItem("userId");
-      const url = `https://a-z3tq.onrender.com/api/Books/PDFReader/${serialNumber}/${userId}`;
+      const url = `https://a-z3tq.onrender.com/api/Books/PDFReader/${serialNumber}/${encodeURIComponent(
+        userId
+      )}`;
       let pdfDoc = null;
       let scale = 1.0;
       let currentPage = 1;
