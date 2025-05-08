@@ -19,7 +19,7 @@ async function updateBook() {
   ];
 
   try {
-    const response = await fetch(
+    const response = await authorizedFetch(
       `https://a-z3tq.onrender.com/api/books/${serialNumber}`,
       {
         method: "PATCH",

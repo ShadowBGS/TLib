@@ -121,6 +121,22 @@
     </main>
     <script src="../Dashboard.js"></script>
     <script>
+      function authorizedFetch(url, options = {}) {
+  const token = sessionStorage.getItem("token"); // Your JWT token
+  const apiKey = "your-api-key"; // Replace with your actual API key
+
+  const headers = {
+    ...options.headers,
+    "Content-Type": "application/json",
+    "x-api-key": apiKey,
+    Authorization: `Bearer ${token}`,
+  };
+
+  return fetch(url, {
+    ...options,
+    headers,
+  });
+}
       function patchUser() {
         const userId = document.getElementById("userId").value;
         const field = document.getElementById("field").value;
@@ -135,7 +151,7 @@
           }
         ];
     
-        fetch(`https://a-z3tq.onrender.com/api/user/${encodeURIComponent(userId)}`, {
+        authorizedFetch(`https://a-z3tq.onrender.com/api/user/${encodeURIComponent(userId)}`, {
           method: "PATCH",
           headers: {
             "Content-Type": "application/json-patch+json",

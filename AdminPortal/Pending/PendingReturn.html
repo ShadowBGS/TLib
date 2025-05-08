@@ -247,6 +247,22 @@
     </main>
     <script src="..//Dashboard.js"></script>
     <script>
+      function authorizedFetch(url, options = {}) {
+  const token = sessionStorage.getItem("token"); // Your JWT token
+  const apiKey = "your-api-key"; // Replace with your actual API key
+
+  const headers = {
+    ...options.headers,
+    "Content-Type": "application/json",
+    "x-api-key": apiKey,
+    Authorization: `Bearer ${token}`,
+  };
+
+  return fetch(url, {
+    ...options,
+    headers,
+  });
+}
       const tableBody = document.querySelector("#returnTable tbody");
       const modal = document.getElementById("modal");
       const modalText = document.getElementById("modalText");
@@ -255,7 +271,7 @@
 
       async function fetchPendingReturns() {
         try {
-          const res = await fetch(
+          const res = await authorizedFetch(
             "https://a-z3tq.onrender.com/api/Books/pending-returns"
           );
           const returns = await res.json();
@@ -295,7 +311,7 @@
 
       async function approveReturn() {
         try {
-          const res = await fetch(
+          const res = await authorizedFetch(
             `https://a-z3tq.onrender.com/api/Books/approve-return/${encodeURIComponent(
               currentReturnCode
             )}`,

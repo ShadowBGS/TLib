@@ -131,6 +131,22 @@
     </main>
     <script src="../Dashboard.js"></script>
     <script>
+      function authorizedFetch(url, options = {}) {
+        const token = sessionStorage.getItem("token"); // Your JWT token
+        const apiKey = "your-api-key"; // Replace with your actual API key
+
+        const headers = {
+          ...options.headers,
+          "Content-Type": "application/json",
+          "x-api-key": apiKey,
+          Authorization: `Bearer ${token}`,
+        };
+
+        return fetch(url, {
+          ...options,
+          headers,
+        });
+      }
       const exportBtn = document.getElementById("exportBtn");
       const responseDiv = document.getElementById("response");
 
@@ -138,7 +154,9 @@
         try {
           responseDiv.textContent = "Preparing file...";
 
-          const res = await fetch("https://a-z3tq.onrender.com/api/Books/export");
+          const res = await authorizedFetch(
+            "https://a-z3tq.onrender.com/api/Books/export"
+          );
           if (!res.ok) throw new Error("Failed to export");
 
           const blob = await res.blob();

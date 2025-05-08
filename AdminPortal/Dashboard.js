@@ -293,7 +293,7 @@ document.addEventListener("DOMContentLoaded", async function GetRecents() {
   const url = `https://a-z3tq.onrender.com/api/Books/borrow-history?pageNumber=1&pageSize=5`;
 
   try {
-    const response = await fetch(url);
+    const response = await authorizedFetch(url);
     const data = await response.json();
     const history = data.borrowHistory;
     const TB = document.getElementById("TB");

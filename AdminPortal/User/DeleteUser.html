@@ -230,6 +230,22 @@
     </main>
     <script src="../Dashboard.js"></script>
     <script>
+      function authorizedFetch(url, options = {}) {
+  const token = sessionStorage.getItem("token"); // Your JWT token
+  const apiKey = "your-api-key"; // Replace with your actual API key
+
+  const headers = {
+    ...options.headers,
+    "Content-Type": "application/json",
+    "x-api-key": apiKey,
+    Authorization: `Bearer ${token}`,
+  };
+
+  return fetch(url, {
+    ...options,
+    headers,
+  });
+}
       let serialToDelete = "";
 
       function showConfirmation() {
@@ -271,7 +287,7 @@
           message.textContent = "Deleting...";
           message.className = "";
 
-          const response = await fetch(
+          const response = await authorizedFetch(
             `https://a-z3tq.onrender.com/api/user/delete?userId=${encodeURIComponent(
               serialToDelete
             )}`,

@@ -188,6 +188,22 @@
     </main>
     <script src="../Dashboard.js"></script>
     <script>
+      function authorizedFetch(url, options = {}) {
+  const token = sessionStorage.getItem("token"); // Your JWT token
+  const apiKey = "your-api-key"; // Replace with your actual API key
+
+  const headers = {
+    ...options.headers,
+    "Content-Type": "application/json",
+    "x-api-key": apiKey,
+    Authorization: `Bearer ${token}`,
+  };
+
+  return fetch(url, {
+    ...options,
+    headers,
+  });
+}
       const form = document.getElementById("importForm");
       const message = document.getElementById("message");
 
@@ -209,7 +225,7 @@
           message.textContent = "Uploading...";
           message.className = "";
 
-          const response = await fetch(
+          const response = await authorizedFetch(
             "https://a-z3tq.onrender.com/api/Books/import",
             {
               method: "POST",

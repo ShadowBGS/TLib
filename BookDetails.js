@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       });
     });
   } catch (error) {
-    console.error("Eroor fetching Book");
+    console.error("Error fetching Book");
   }
 });
 function truncateText(text, wordCount) {
