@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   async function fetchBooks() {
     document.getElementById("loader").style.display = "block";
-    updatePagination(totalPages); // Update pagination controls
+
     const userId = sessionStorage.getItem("userId");
     const search = searchInput.value.trim();
     const sortSelect = document.getElementById("sort");
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       const book = await response.json();
       const books = book.data;
       const totalPages = book.totalPages; // Assuming the response includes totalPages
-
+      updatePagination(totalPages); // Update pagination controls
       // Clear previous books
       booksContainer.innerHTML = "";
 
@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             }" class="details">View <br />Details</a>
           </div>
         `;
-        document.getElementById("loader").style.display = "none";
+        
         if (booksContainer.innerHTML == null) {
           document.getElementById("loader").style.display = "none";
           document.getElementById("pagination").style.display = "none";
