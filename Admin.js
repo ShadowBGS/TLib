@@ -33,6 +33,9 @@ function togglePassword() {
 
 
 async function login() {
+  const button = document.querySelector(".login-btn");
+  button.innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Logging in...`;
+  button.disabled = true; 
   const userId = document.getElementById("StaffId").value;
   const password = document.getElementById("password").value;
   const errorMessage = document.getElementById("error-message");
@@ -64,6 +67,12 @@ async function login() {
   } catch (error) {
     console.error("Login error:", error.message);
     errorMessage.textContent = error.message;
+  setTimeout(() => {
+      errorMessage.textContent = ""; // Clear the error message after 3 seconds
+    }, 3000);
+  } finally {
+    button.innerHTML = "Login";
+    button.disabled = false; // Re-enable the button after login attempt
   }
 }
 
