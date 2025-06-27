@@ -12,11 +12,14 @@ const API_BASE_URL = "https://a-z3tq.onrender.com/api/userlogin";
 
 // Function to handle user login
 async function login() {
-  document.querySelector(".login-btn").innerHTML = "Logging in...";
-  document.querySelector(".login-btn").disabled = true; // Disable the button to prevent multiple clicks
+  const button = document.querySelector(".login-btn");
+  button.innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Logging in...`;
+  button.disabled = true; // Disable the button to prevent multiple clicks
+
   const userId = document.getElementById("matric").value;
   const password = document.getElementById("password").value;
   const errorMessage = document.getElementById("error-message");
+  errorMessage.textContent = ""; // Clear any previous error messages
   const API_BASE_URL = "https://a-z3tq.onrender.com/api/userlogin";
   try {
     const response = await fetch(
@@ -46,11 +49,14 @@ async function login() {
     window.location.href = "Dashboard.html";
   } catch (error) {
     console.error("Login error:", error.message);
+
     errorMessage.textContent = error.message;
-  }
-  finally {
-    document.querySelector(".login-btn").innerHTML = "Login";
-    document.querySelector(".login-btn").disabled = false; // Re-enable the button after login attempt
+    setTimeout(() => {
+      errorMessage.textContent = ""; // Clear the error message after 3 seconds
+    }, 3000);
+  } finally {
+    button.innerHTML = "Login";
+    button.disabled = false; // Re-enable the button after login attempt
   }
 }
 document.addEventListener("DOMContentLoaded", function () {

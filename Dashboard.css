@@ -41,7 +41,7 @@ nav input:focus-within {
 
 .Search button {
   border: none;
-  width: 100px;
+  width: 100px; 
   border-radius: 25px;
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
@@ -340,6 +340,7 @@ nav input:focus-within {
   padding-left: 6px;
 }
 a {
+  color: #8147a7;
   text-decoration: none;
 }
 /* Popup Ends */
