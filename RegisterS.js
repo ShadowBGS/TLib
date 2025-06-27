@@ -38,6 +38,8 @@ const errorMessage = document.getElementById("error-message");
 const registerBtn = document.getElementById("register-btn");
 async function register() {
   try {
+    registerBtn.innerHTML="Registering..."
+    registerBtn.disabled = true; // Disable the button to prevent multiple clicks
     const first = document.getElementById("first").value.trim();
     const last = document.getElementById("last").value.trim();
     const email = document.getElementById("email").value.trim();
@@ -63,9 +65,14 @@ async function register() {
     } else {
       alert("Registration successful");
       sessionStorage.setItem("email", email);
+      localStorage.setItem("email", email);
       window.location.href = "Verifyemail.html";
     }
   } catch (error) {
     console.error(error);
+  }
+  finally{
+    registerBtn.innerHTML="Register"
+    registerBtn.disabled = false; // Re-enable the button after registration attempt
   }
 }

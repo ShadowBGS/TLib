@@ -33,6 +33,8 @@ function togglePassword() {
 
 
 async function login() {
+  document.querySelector(".login-btn").innerHTML = "Logging in...";
+  document.querySelector(".login-btn").disabled = true; // Disable the button to prevent multiple clicks
   const userId = document.getElementById("StaffId").value;
   const password = document.getElementById("password").value;
   const errorMessage = document.getElementById("error-message");
@@ -64,6 +66,10 @@ async function login() {
   } catch (error) {
     console.error("Login error:", error.message);
     errorMessage.textContent = error.message;
+  }
+  finally{
+    document.querySelector(".login-btn").innerHTML = "Login";
+    document.querySelector(".login-btn").disabled = false; // Re-enable the button after login attempt
   }
 }
 

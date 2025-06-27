@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const row = document.createElement("tr");
         row.className = "active_data1";
         row.innerHTML = `
-          <td>${book.serialNumber}</td>
+          <td onclick="(function(el){ localStorage.setItem('selectedSerial', el.innerHTML); window.location.href='BookDetails.html'; })(this)" id="serialnumbers">${book.serialNumber}</td>
           <td>${formatDate(book.borrowTime)}</td>
           <td>${formatDate(book.dueDate)}</td>
           <td>${book.returnTime ? formatDate(book.returnTime) : "N/A"}</td>

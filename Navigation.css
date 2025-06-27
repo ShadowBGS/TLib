@@ -5,6 +5,10 @@
   --inter: "Inter", sans-serif;
   --black:"#000000;"
 }
+#serialnumbers:hover{
+ text-decoration: underline;
+ cursor: pointer;
+}
 
 body {
   font-family: var(--inter);

@@ -37,6 +37,8 @@ function geterror() {
 
 const Enter = document.getElementById("Enter");
 Enter.addEventListener("click", async () => {
+  Enter.innerHTML = "Processing...";
+  Enter.disabled = true; // Disable the button to prevent multiple clicks
   try {
     const userId = sessionStorage.getItem("userId");
     const serialNumber = document.getElementById("serialnumber").value.trim();
@@ -83,5 +85,9 @@ Enter.addEventListener("click", async () => {
     ErrorMessage.style.display = "block";
     geterror();
     console.error("Error Getting book", error);
+  }
+  finally {
+    Enter.innerHTML = "Enter";
+    Enter.disabled = false; // Re-enable the button after processing
   }
 });

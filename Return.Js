@@ -36,6 +36,8 @@ function geterror() {
 
 const Enter = document.getElementById("Enter");
 Enter.addEventListener("click", async () => {
+  Enter.innerHTML = "Processing...";
+  Enter.disabled = true; // Disable the button to prevent multiple clicks
   try {
     const matricNo = sessionStorage.getItem("matricNo");
     const serialNumber = document.getElementById("serialnumber").value.trim();
@@ -60,7 +62,7 @@ Enter.addEventListener("click", async () => {
       if (response.status === 200) {
         localStorage.setItem("selectedSerial", serialNumber);
         localStorage.setItem("savedLocation", window.location.href);
-        localStorage.setItem("scannedSerialNumber", "");s
+        localStorage.setItem("scannedSerialNumber", "");
         window.location.href = "RequestReturn.html";
       } else {
         ErrorMessage.innerText = "BOOK NOT FOUND";
@@ -71,19 +73,23 @@ Enter.addEventListener("click", async () => {
       ErrorMessage.innerText = "No borrow record";
       geterror();
       console.error("Book is not borrowed");
-    } else if (response.status === 400 && !response.name) {
+    } else if (response.status === 400 && !bookresponse.name) {
       ErrorMessage.innerText = "BOOK NOT FOUND";
       geterror();
       console.error("BOOK NOT FOUND");
     } else {
-      ErrorMessage.innerText = "BOOK NOT FOUND";
-      geterror();
-      console.error("BOOK NOT FOUND");
+      // ErrorMessage.innerText = "BOOK NOT FOUND";
+      // geterror();
+      // console.error("BOOK NOT FOUND");
     }
   } catch (error) {
     ErrorMessage.innerHTML = "Book not Found";
     ErrorMessage.style.display = "block";
     geterror();
     console.error("Error Getting book", error);
+  }
+  finally {
+    Enter.innerHTML = "Enter";
+    Enter.disabled = false; // Re-enable the button after processing
   }
 });

@@ -27,7 +27,7 @@ const first = document.getElementById("first").value.trim();
 const last = document.getElementById("last").value.trim();
 const email = document.getElementById("email").value.trim();
 const School = document.getElementById("School").value.trim();
-const matric = document.getElementById("matric").value.trim();
+const matric = document.getElementById("staff").value.trim();
 // const password = document.getElementById("password").value.trim();
 const Department = document.getElementById("Department").value.trim();
 const url = `https://a-z3tq.onrender.com/api/user/register?UserId=${matric}&FirstName=${first}&LastName=${last}&Email=${encodeURIComponent(
@@ -38,15 +38,19 @@ const errorMessage = document.getElementById("error-message");
 const registerBtn = document.getElementById("register-btn");
 async function register() {
   try {
+    registerBtn.innerHTML = "Registering...";
+    registerBtn.disabled = true; // Disable the button to prevent multiple clicks
     const first = document.getElementById("first").value.trim();
     const last = document.getElementById("last").value.trim();
     const email = document.getElementById("email").value.trim();
     const School = document.getElementById("School").value.trim();
-    const matric = document.getElementById("matric").value.trim();
+    const matric = document.getElementById("staff").value.trim();
     const password = document.getElementById("password").value.trim();
     const Department = document.getElementById("Department").value.trim();
     const errorMessage = document.getElementById("error-message");
-    const url = `https://a-z3tq.onrender.com/api/user/register?UserId=${encodeURIComponent(matric)}&FirstName=${first}&LastName=${last}&Email=${encodeURIComponent(
+    const url = `https://a-z3tq.onrender.com/api/user/register?UserId=${encodeURIComponent(
+      matric
+    )}&FirstName=${first}&LastName=${last}&Email=${encodeURIComponent(
       email
     )}&UserType=Lecturer&IsAdmin=false&Department=${Department}&School=${School}&Password=${password}`;
 
@@ -62,10 +66,15 @@ async function register() {
       }, 3000);
     } else {
       alert("Registration successful");
+      localStorage.setItem("email", email);
       sessionStorage.setItem("email", email);
       window.location.href = "Verifyemail.html";
     }
   } catch (error) {
     console.error(error);
+    errorMessage.innerHTML = error;
+  } finally {
+    registerBtn.innerHTML = "Register";
+    registerBtn.disabled = false; // Re-enable the button after registration attempt
   }
 }
