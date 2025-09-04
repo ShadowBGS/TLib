@@ -33,7 +33,7 @@ const Department = document.getElementById("Department").value.trim();
 const url = `https://a-z3tq.onrender.com/api/user/register?UserId=${matric}&FirstName=${first}&LastName=${last}&Email=${encodeURIComponent(
   email
 )}&UserType=Student&IsAdmin=false&Department=${Department}&School=${School}&Password=${password}`;
-const errorMessage = document.getElementById("error-message");
+const errorMessage = document.getElementById("errorMessage");
 
 const registerBtn = document.getElementById("register-btn");
 async function register() {
