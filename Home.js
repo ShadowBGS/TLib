@@ -1,3 +1,9 @@
+async function getapirunning(){
+  const data = await fetch("https://a-z3tq.onrender.com/ping");
+  const pong = await data.json();
+  console.log(pong)
+}
+document.addEventListener("DOMContentLoaded", getapirunning);
 function openSidebar() {
   const main = document.getElementById("Main");
   const sidebar = document.getElementById("SideH");
